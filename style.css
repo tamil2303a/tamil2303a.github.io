@@ -1,169 +1,153 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background: #f4f7fa;
-  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  background: #0d1321;
+  color: #e9f1f7;
+  overflow-x: hidden;
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #4a90e2, #0077b6);
-  color: #fff;
-  padding: 60px 20px;
+/* Global Parallax Layers (no images) */
+.parallax-layer {
+  position: fixed;
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+  width: 100vw;
+  height: 140vh;            /* slightly taller for smooth scroll */
+  pointer-events: none;
+  will-change: transform;
+  z-index: -3;
+  transform: translate3d(0,0,0);
+}
+
+/* Layer visuals (pure CSS) */
+.layer-1 {
+  z-index: -3;
+  opacity: 0.55;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, #1b2a49 0%, transparent 60%),
+    radial-gradient(900px 700px at 80% 20%, #16263d 0%, transparent 55%),
+    radial-gradient(1000px 800px at 30% 90%, #132034 0%, transparent 60%);
+}
+
+.layer-2 {
+  z-index: -2;
+  opacity: 0.35;
+  background:
+    radial-gradient(220px 220px at 15% 35%, rgba(0, 183, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(260px 260px at 75% 70%, rgba(0, 255, 200, 0.18) 0%, transparent 60%),
+    radial-gradient(180px 180px at 50% 15%, rgba(255, 140, 0, 0.14) 0%, transparent 65%);
+  filter: blur(1px);
+}
+
+.layer-3 {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Hero */
+.hero {
   text-align: center;
+  padding: 80px 18px 50px;
 }
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 20px;
-}
+.hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 10px; }
+.hero p { opacity: 0.9; margin-bottom: 18px; }
 
 /* Resume Button */
 .resume-btn {
   display: inline-block;
   background: #ffb703;
-  color: #000;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
+  color: #111;
+  padding: 12px 24px;
+  border-radius: 28px;
+  font-weight: 700;
   text-decoration: none;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
 }
+.resume-btn:hover { transform: translateY(-2px); background: #fb8500; color: #fff; }
 
-.resume-btn:hover {
-  background: #fb8500;
-  color: #fff;
-  transform: scale(1.05);
+/* Nav */
+.topnav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(7, 11, 22, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 12px 10px;
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
-/* Navbar */
-nav {
-  background: #023e8a;
-  padding: 15px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.topnav a {
+  color: #e9f1f7; text-decoration: none; font-weight: 600;
+  padding: 6px 10px; border-radius: 6px; transition: background .2s ease, color .2s ease;
 }
+.topnav a:hover { background: rgba(255,255,255,0.08); color: #90e0ef; }
 
-nav a {
-  color: #fff;
-  margin: 0 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffdd57;
-}
-
-/* Sections */
-section {
+/* Main Content */
+.content {
   max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  padding: 20px 16px 60px;
 }
-
+section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 22px 18px;
+  margin: 18px 0 28px;
+  backdrop-filter: blur(4px);
+}
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #0077b6;
-  border-bottom: 3px solid #90e0ef;
-  display: inline-block;
-  padding-bottom: 5px;
+  font-size: 1.6rem;
+  border-left: 4px solid #00b4d8;
+  padding-left: 10px;
+  margin-bottom: 12px;
 }
 
-ul li {
-  margin: 8px 0;
-}
+/* Lists & Timeline */
+ul { padding-left: 18px; }
+ul li { margin: 8px 0; }
+/*.timeline { border-left: 3px solid #1e3a5f; padding-left: 16px; }
+.timeline-item { position: relative; margin: 12px 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute; left: -10px; top: 4px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #00b4d8; box-shadow: 0 0 0 3px rgba(0,180,216,.25);
+}*/
 
 /* Footer */
 footer {
-  background: #03045e;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-top: 20px;
+  text-align: center; padding: 24px 12px; color: #bcd;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(7, 11, 22, 0.6); backdrop-filter: blur(6px);
 }
 
-footer p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Contact Links */
-#contact a {
-  color: #0077b6;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#contact a:hover {
-  color: #ff5400;
-}
-
-/* RESPONSIVE DESIGN */
+/* Responsive tweaks */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  nav a {
-    margin: 0 10px;
-    font-size: 0.9rem;
-  }
-
-  section {
-    margin: 20px;
-    padding: 20px;
-  }
+  .topnav { gap: 10px; }
+  section { padding: 18px 14px; }
+  h2 { font-size: 1.35rem; }
 }
 
-@media (max-width: 480px) {
-  header {
-    padding: 40px 15px;
-  }
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer { transform: none !important; }
+}
 
-  header h1 {
-    font-size: 1.5rem;
-  }
+.profile-pic {
+  width: 200px;   /* adjust size */
+  height: 200px;  /* makes it 1:1 */
+  border-radius: 50%; /* circle (remove if you want square) */
+  object-fit: cover;  /* crops image nicely */
+  display: block;
+  margin: 0 auto;
+}
 
-  .resume-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav a {
-    margin: 5px;
-    font-size: 0.8rem;
-  }
+.edu-card, .exp-card {
+  background: rgba(255,255,255,0.00);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.0);
 }

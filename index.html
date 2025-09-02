@@ -8,20 +8,30 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+<!-- GLOBAL PARALLAX LAYERS (sit behind everything) -->
+  <div class="parallax-layer layer-1" data-parallax data-speed="0.12"></div>
+  <div class="parallax-layer layer-2" data-parallax data-speed="0.25"></div>
+  <div class="parallax-layer layer-3" data-parallax data-speed="0.45"></div>
+
+  <!-- CONTENT -->
+  <header class="hero">
+    <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
     <h1>Tamilselvan A</h1>
     <p>Aspiring AWS & DevOps Engineer | Git | Docker | Kubernetes | Terraform</p>
     <a href="Tamilselvan Resume.pdf" class="resume-btn" target="_blank">📄 Download Resume</a>
   </header>
 
   <!-- Navbar -->
-  <nav>
+  <nav class="topnav">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <main class="content">
 
   <!-- About Section -->
   <section id="about">
@@ -38,10 +48,36 @@
       <li>Docker & Containerization</li>
       <li>CI/CD (Jenkins, GitHub Actions)</li>
       <li>Kubernetes & EKS</li>
-      <li>AWS (EC2, S3, ECS, Lambda, Route 53)</li>
+      <li>AWS (EC2, S3, IAM, RDS, ECS, Lambda, Cloudfront, Route 53)</li>
       <li>Terraform (IaC)</li>
       <li>Python / Shell scripting</li>
     </ul>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+  <h2>Education</h2>
+  <div class="edu-card">
+      <div class="timeline-item">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <p>Thiruvalluvar University | 2018 - 2021 | First Class (80%)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+  <h2>Experience</h2>
+  <div class="exp-card">
+        <h3>E-Learning Developer</h3>
+        <p>Learnnovators Private Limited | Apr,2022 - Jul,2024</p>
+        <ul>
+          <li>Developed dynamic e-learning modules using Articulate Storyline 360, Rise 360, and Adobe Captivate, incorporating JavaScript to achieve custom functionalities beyond standard tool capabilities.</li>
+          <li>Proactively assumed additional responsibilities to enhance team operations and fostered a collaborative and efficient work environment.</li>
+          <li>Collaborated with cross-functional teams to deliver high-quality and engaging e-learning content tailored to client requirements.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- Projects Section -->
@@ -61,6 +97,7 @@
     <p>GitHub: <a href="https://github.com/tamil2303a" target="_blank">github.com/tamil2303a</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/tamilselvan-a-6057b8212" target="_blank">linkedin.com/in/tamilselvan-a-6057b8212</a></p>
   </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
